@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Wallet - Blockchain Security</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🔐</span>
+                <span class="brand-name">CryptoWallet</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Trang chủ</a>
+                <a href="#features">Tính năng</a>
+                <a href="#wallet">Ví</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Ví Blockchain</span>
+                    <br>An toàn & Bảo mật
+                </h1>
+                <p class="hero-subtitle">
+                    Ứng dụng ví điện tử với đầy đủ tính năng: Tạo khóa ECDSA, Ký số, Xác thực, 
+                    và nhiều tính năng nâng cao khác. Hỗ trợ 5 thuật toán hash khác nhau.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-badge">🔐 ECDSA secp256k1</div>
+                    <div class="hero-badge">✍️ Digital Signature</div>
+                    <div class="hero-badge">🔧 5 Hash Algorithms</div>
+                    <div class="hero-badge">💻 CLI Interface</div>
+                </div>
+                <button class="cta-button" onclick="scrollToWallet()">
+                    <span>Bắt đầu ngay</span>
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <div class="card-glow"></div>
+                    <div class="lock-icon">🔒</div>
+                    <div class="key-icon">🔑</div>
+                    <div class="shield-icon">🛡️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Tính năng nổi bật</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Tạo khóa</h3>
+                    <p>Sinh cặp khóa Private/Public key an toàn với thuật toán mã hóa ECDSA</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Địa chỉ ví</h3>
+                    <p>Tự động tạo địa chỉ ví từ public key với chuẩn Ethereum</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Ký giao dịch</h3>
+                    <p>Ký các giao dịch JSON với chữ ký số bảo mật cao</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Xác thực</h3>
+                    <p>Xác minh chữ ký để đảm bảo tính toàn vẹn của dữ liệu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wallet-section" id="wallet">
+        <div class="container">
+            <h2 class="section-title">Quản lý Ví</h2>
+            
+            <!-- CLI Terminal Interface -->
+            <div class="wallet-card cli-terminal">
+                <div class="card-header">
+                    <h3>💻 Command Line Interface</h3>
+                </div>
+                <div class="card-body">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">wallet-cli</span>
+                        </div>
+                        <div class="terminal-body" id="terminalOutput">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span> <span class="text-muted">Wallet CLI v1.0.0 - Type 'help' for commands</span>
+                            </div>
+                        </div>
+                        <div class="terminal-input-line">
+                            <span class="prompt">$</span>
+                            <input type="text" id="cliInput" class="terminal-input" placeholder="wallet generate" autofocus>
+                        </div>
+                    </div>
+                    <div class="cli-help">
+                        <strong>📋 Available Commands:</strong>
+                        <ul>
+                            <li><code>wallet generate</code> - Tạo ví mới</li>
+                            <li><code>wallet sign "message"</code> - Ký giao dịch</li>
+                            <li><code>wallet verify</code> - Xác thực chữ ký</li>
+                            <li><code>wallet import "privateKey"</code> - Import ví</li>
+                            <li><code>wallet address</code> - Hiển thị địa chỉ ví</li>
+                            <li><code>wallet export</code> - Export wallet info</li>
+                            <li><code>wallet balance</code> - Kiểm tra thông tin ví</li>
+                            <li><code>help</code> - Hiển thị trợ giúp</li>
+                            <li><code>clear</code> - Xóa terminal</li>
+                        </ul>
+                        <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border-radius: 6px; border-left: 3px solid var(--success);">
+                            <strong>💡 Tip:</strong> Sử dụng CLI để demo nhanh các tính năng blockchain!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Generate Wallet -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>🔑 Tạo Ví Mới</h3>
+                </div>
+                <div class="card-body">
+                    <button class="action-button primary" onclick="generateWallet()">
+                        <span class="button-icon">✨</span>
+                        <span>Tạo Ví</span>
+                    </button>
+                    
+                    <div id="walletResult" class="result-box" style="display: none;">
+                        <div class="result-item">
+                            <label>Private Key:</label>
+                            <div class="key-display">
+                                <code id="privateKey"></code>
+                                <button class="copy-btn" onclick="copyToClipboard('privateKey')">📋</button>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <label>Public Key:</label>
+                            <div class="key-display">
+                                <code id="publicKey"></code>
+                                <button class="copy-btn" onclick="copyToClipboard('publicKey')">📋</button>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <label>Address:</label>
+                            <div class="key-display address">
+                                <code id="address"></code>
+                                <button class="copy-btn" onclick="copyToClipboard('address')">📋</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sign Message -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>✍️ Ký Giao Dịch</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Private Key:</label>
+                        <input type="text" id="signPrivateKey" class="input-field" placeholder="Nhập private key...">
+                    </div>
+                    <div class="form-group">
+                        <label>Thuật toán Hash:</label>
+                        <select id="hashAlgorithm" class="input-field" onchange="updateHashInfo()">
+                            <option value="sha256">SHA-256 (Bitcoin, Ethereum)</option>
+                            <option value="sha512">SHA-512 (More secure)</option>
+                            <option value="keccak256">Keccak-256 (Ethereum native)</option>
+                            <option value="sha3-256">SHA3-256 (Latest standard)</option>
+                            <option value="ripemd160">RIPEMD-160 (Bitcoin address)</option>
+                        </select>
+                        <small id="hashInfo" style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
+                            🔐 SHA-256: Thuật toán băm 256-bit được sử dụng trong Bitcoin và Ethereum
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung giao dịch (JSON):</label>
+                        <textarea id="messageToSign" class="textarea-field" rows="6" placeholder='{"to": "0x123...", "amount": 5, "currency": "ETH"}'>
+{
+  "to": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb4",
+  "amount": 5,
+  "currency": "ETH",
+  "timestamp": 1763984715021
+}</textarea>
+                    </div>
+                    <button class="action-button primary" onclick="signMessage()">
+                        <span class="button-icon">✍️</span>
+                        <span>Ký Giao Dịch</span>
+                    </button>
+                    
+                    <div id="signatureResult" class="result-box" style="display: none;">
+                        <div class="result-item">
+                            <label>Signature:</label>
+                            <div class="key-display">
+                                <code id="signature"></code>
+                                <button class="copy-btn" onclick="copyToClipboard('signature')">📋</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verify Signature -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>✅ Xác Thực Chữ Ký</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Public Key:</label>
+                        <input type="text" id="verifyPublicKey" class="input-field" placeholder="Nhập public key...">
+                    </div>
+                    <div class="form-group">
+                        <label>Thuật toán Hash:</label>
+                        <select id="verifyHashAlgorithm" class="input-field">
+                            <option value="sha256">SHA-256 (Bitcoin, Ethereum)</option>
+                            <option value="sha512">SHA-512 (More secure)</option>
+                            <option value="keccak256">Keccak-256 (Ethereum native)</option>
+                            <option value="sha3-256">SHA3-256 (Latest standard)</option>
+                            <option value="ripemd160">RIPEMD-160 (Bitcoin address)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung giao dịch (JSON):</label>
+                        <textarea id="messageToVerify" class="textarea-field" rows="6" placeholder='{"to": "0x123...", "amount": 5, "currency": "ETH"}'>
+{
+  "to": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb4",
+  "amount": 5,
+  "currency": "ETH",
+  "timestamp": 1763984715021
+}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Signature:</label>
+                        <input type="text" id="signatureToVerify" class="input-field" placeholder="Nhập signature...">
+                    </div>
+                    <button class="action-button primary" onclick="verifySignature()">
+                        <span class="button-icon">🔍</span>
+                        <span>Xác Thực</span>
+                    </button>
+                    
+                    <div id="verifyResult" class="result-box" style="display: none;">
+                        <div class="verification-status">
+                            <span id="verifyStatus"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Import Wallet -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>📥 Import Ví</h3>
+                </div>
+                <div class="card-body">
+                    <div class="import-tabs">
+                        <button class="import-tab-btn active" onclick="switchImportTab('privatekey')">Private Key</button>
+                        <button class="import-tab-btn" onclick="switchImportTab('mnemonic')">Mnemonic (12 từ)</button>
+                    </div>
+                    
+                    <div id="importPrivateKeyTab" class="import-tab-content active">
+                        <div class="form-group">
+                            <label>Private Key:</label>
+                            <input type="password" id="importPrivateKey" class="input-field" placeholder="Nhập private key để khôi phục ví...">
+                            <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
+                                🔒 Private key sẽ được mã hóa và không bao giờ rời khỏi trình duyệt của bạn
+                            </small>
+                        </div>
+                        <button class="action-button primary" onclick="importWallet()">
+                            <span class="button-icon">📥</span>
+                            <span>Import từ Private Key</span>
+                        </button>
+                    </div>
+                    
+                    <div id="importMnemonicTab" class="import-tab-content">
+                        <div class="form-group">
+                            <label>Mnemonic Phrase (12 từ):</label>
+                            <textarea id="importMnemonic" class="textarea-field" rows="3" placeholder="abandon ability able about above absent absorb abstract absurd abuse access accident"></textarea>
+                            <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
+                                📝 Nhập 12 từ cách nhau bởi dấu cách, theo đúng thứ tự
+                            </small>
+                        </div>
+                        <button class="action-button primary" onclick="importFromMnemonic()">
+                            <span class="button-icon">📥</span>
+                            <span>Khôi Phục từ Mnemonic</span>
+                        </button>
+                        <div id="mnemonicImportResult" class="result-box" style="display: none; margin-top: 1rem;">
+                            <div class="result-item">
+                                <label>✅ Khôi phục thành công!</label>
+                                <p style="color: var(--text-muted); margin-top: 0.5rem;">Ví đã được khôi phục từ mnemonic phrase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Management -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>💾 Quản Lý Ví</h3>
+                </div>
+                <div class="card-body">
+                    <div class="wallet-actions-grid">
+                        <button class="action-button secondary" onclick="exportPrivateKey()">
+                            <span class="button-icon">🔑</span>
+                            <span>Export Private Key</span>
+                        </button>
+                        <button class="action-button secondary" onclick="showMnemonic()">
+                            <span class="button-icon">📝</span>
+                            <span>Tạo Mnemonic</span>
+                        </button>
+                        <button class="action-button secondary" onclick="clearWallet()">
+                            <span class="button-icon">🗑️</span>
+                            <span>Xóa Ví</span>
+                        </button>
+                    </div>
+                    
+                    <div id="exportResult" class="result-box" style="display: none; margin-top: 1.5rem;">
+                        <div class="result-item">
+                            <label id="exportLabel"></label>
+                            <div class="key-display">
+                                <pre id="exportContent" style="margin: 0; white-space: pre-wrap;"></pre>
+                                <button class="copy-btn" onclick="copyExportContent()">📋</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>📜 Lịch Sử Giao Dịch</h3>
+                </div>
+                <div class="card-body">
+                    <div id="transactionHistory" class="transaction-list">
+                        <p style="text-align: center; color: var(--text-muted);">Chưa có giao dịch nào</p>
+                    </div>
+                    <button class="action-button secondary" onclick="clearHistory()" style="margin-top: 1rem;">
+                        <span class="button-icon">🗑️</span>
+                        <span>Xóa Lịch Sử</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Batch Sign -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>📦 Ký Hàng Loạt</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Private Key:</label>
+                        <input type="text" id="batchPrivateKey" class="input-field" placeholder="Nhập private key...">
+                    </div>
+                    <div class="form-group">
+                        <label>Danh sách giao dịch (mỗi dòng một JSON):</label>
+                        <textarea id="batchMessages" class="textarea-field" rows="6" placeholder='{"to": "0x123...", "amount": 1, "currency": "ETH"}
+{"to": "0x456...", "amount": 2, "currency": "ETH"}'></textarea>
+                    </div>
+                    <button class="action-button primary" onclick="batchSign()">
+                        <span class="button-icon">📦</span>
+                        <span>Ký Hàng Loạt</span>
+                    </button>
+                    
+                    <div id="batchResult" class="result-box" style="display: none;">
+                        <div id="batchSignatures"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Encryption -->
+            <div class="wallet-card">
+                <div class="card-header">
+                    <h3>🔐 Mã Hóa Tin Nhắn</h3>
+                </div>
+                <div class="card-body">
+                    <div class="encrypt-decrypt-tabs">
+                        <button class="tab-button active" onclick="switchEncryptTab('encrypt')">Mã hóa</button>
+                        <button class="tab-button" onclick="switchEncryptTab('decrypt')">Giải mã</button>
+                    </div>
+                    
+                    <div id="encryptTab" class="tab-content active">
+                        <div class="form-group">
+                            <label>Public Key người nhận:</label>
+                            <input type="text" id="encryptPublicKey" class="input-field" placeholder="Nhập public key...">
+                        </div>
+                        <div class="form-group">
+                            <label>Tin nhắn:</label>
+                            <textarea id="messageToEncrypt" class="textarea-field" rows="4" placeholder="Nhập tin nhắn cần mã hóa..."></textarea>
+                        </div>
+                        <button class="action-button primary" onclick="encryptMessage()">
+                            <span class="button-icon">🔒</span>
+                            <span>Mã Hóa</span>
+                        </button>
+                    </div>
+                    
+                    <div id="decryptTab" class="tab-content">
+                        <div class="form-group">
+                            <label>Private Key của bạn:</label>
+                            <input type="password" id="decryptPrivateKey" class="input-field" placeholder="Nhập private key...">
+                        </div>
+                        <div class="form-group">
+                            <label>Tin nhắn đã mã hóa:</label>
+                            <textarea id="messageToDecrypt" class="textarea-field" rows="4" placeholder="Nhập tin nhắn đã mã hóa..."></textarea>
+                        </div>
+                        <button class="action-button primary" onclick="decryptMessage()">
+                            <span class="button-icon">🔓</span>
+                            <span>Giải Mã</span>
+                        </button>
+                    </div>
+                    
+                    <div id="cryptoResult" class="result-box" style="display: none;">
+                        <div class="result-item">
+                            <label id="cryptoLabel"></label>
+                            <div class="key-display">
+                                <pre id="cryptoContent" style="margin: 0; white-space: pre-wrap;"></pre>
+                                <button class="copy-btn" onclick="copyToClipboard('cryptoContent')">📋</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🔐 CryptoWallet</h3>
+                    <p>Ứng dụng ví blockchain an toàn và hiện đại</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Tính năng</h4>
+                    <ul>
+                        <li>✅ Key Generation (ECDSA secp256k1)</li>
+                        <li>✅ Address Derivation (Ethereum)</li>
+                        <li>✅ Digital Signature (5 Hash Algorithms)</li>
+                        <li>✅ Signature Verification</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Công nghệ</h4>
+                    <ul>
+                        <li>🔧 Elliptic Curve Cryptography</li>
+                        <li>🔧 SHA-256, SHA-512, Keccak-256</li>
+                        <li>🔧 SHA3-256, RIPEMD-160</li>
+                        <li>🔧 ECDH Encryption</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Nâng cao</h4>
+                    <ul>
+                        <li>🚀 CLI Interface</li>
+                        <li>🚀 Batch Signing</li>
+                        <li>🚀 Transaction History</li>
+                        <li>🚀 Message Encryption</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CryptoWallet. Blockchain & Applications Course Project.</p>
+                <p class="footer-subtitle">Built with ❤️ using Web Crypto API | Full Score Implementation 🌟</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-sha3@0.8.0/src/sha3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="wallet.js"></script>
+</body>
+</html>

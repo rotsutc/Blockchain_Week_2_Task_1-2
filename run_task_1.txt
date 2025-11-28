@@ -1,0 +1,22 @@
+--- NEW WALLET ---
+Private Key: 069efb4d05965a3391586d3aed0ce0412b5f689516c890ddead3491b57d64a7b
+Address:     0xAC746FA3500656d1a746a8FF26D1C670825dDc31
+
+--- SIGNED MESSAGE ---
+Message: Qui sent 10 BTC to Khanh
+Signature (Hex): 07c9d8285c87f11a771c2baf2e60cc448f71d0d5bdc51525d062814a137041b22821f8ed12db4260e8d6c4c1d816639da93804d29b5018a92f393f492db6e0bc1c
+
+--- VERIFICATION ---
+Recovered Signer: 0xd524687Fd3Bffd87382759717a88f772441faa06
+Result: INVALID Signature ❌
+
+
+python wallet.py generate
+
+python wallet.py sign "Message" <private_key>
+
+python wallet.py sign "Qui sent 10 BTC to Khanh" 2fd65490b41d8512349a6c91e9efb4918d23b2d16f583dd0333fe91f8df5d339
+
+python wallet.py verify "Transfer 5 ETH" <signature> <address>
+
+python wallet.py verify "Qui sent 100 BTC to Khanh" 3b50bcb34da3531915e2a0c309550c8f90be5a0ee9fe509aa583a5de02e360c92ef6421ce40ee8aa61d45ad0428f760d75a995aab5061190e0d1c681d03b10221b 0x096978D4E656F4a3dFaafCc0E08274F8CcdC7f2A
